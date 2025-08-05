@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="三木良居 Sanmu Living 商品瀏覽頁面。提供高品質二手傢俱與生活用品的詳細照片相簿。">
+    <meta name="description" content="三木良居 Sanmu Living 商品瀏覽頁面。提供高品質二手良品與生活用品的詳細照片相簿。">
     <title>商品瀏覽 - 三木良居 Sanmu Living</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
@@ -30,6 +30,27 @@
                 <a href="index.html" class="flex-shrink-0 text-2xl font-bold text-gray-900">
                     Sanmu Living
                 </a>
+                <div class="hidden sm:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <!-- 首頁連結 -->
+                        <a href="index.html" class="text-gray-500 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors">首頁</a>
+                        <!-- 商品瀏覽連結 (目前頁面) -->
+                        <a href="products.html" class="text-gray-500 bg-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors">商品瀏覽</a>
+                    </div>
+                </div>
+                <!-- 手機版選單按鈕 -->
+                <button id="mobile-menu-button" type="button" class="sm:hidden text-gray-500 hover:text-gray-700 focus:outline-none transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- 手機版選單內容 -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-500 hover:bg-gray-100 block w-full text-left px-3 py-2 rounded-md text-base font-medium">首頁</a>
+                <a href="products.html" class="text-gray-500 hover:bg-gray-100 block w-full text-left px-3 py-2 rounded-md text-base font-medium">商品瀏覽</a>
             </div>
         </div>
     </nav>
