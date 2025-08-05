@@ -3,89 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO 優化：新增網頁描述，有助於提升搜尋引擎排名 -->
     <meta name="description" content="三木良居 Sanmu Living 官方網站，提供高品質二手傢俱與生活用品。嚴選二手良品，讓舊物煥發新生命。歡迎參觀實體店面或前往我們的蝦皮賣場選購。">
     <title>三木良居 Sanmu Living</title>
-    <!-- 引入 Tailwind CSS 以實現快速響應式設計 -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Inter 字體 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* 頁面切換的簡單淡入動畫 */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
-    <div class="max-w-2xl w-full bg-white rounded-3xl shadow-xl overflow-hidden p-8 sm:p-12 text-center">
+<body class="bg-gray-50 text-gray-800">
 
-        <!-- 商店名稱與標語 -->
-        <header class="mb-10">
-            <!-- H1 標籤對 SEO 來說非常重要，代表網頁的核心主題 -->
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-2 tracking-tight">三木良居 Sanmu Living</h1>
-            <p class="text-lg sm:text-xl text-gray-600 font-medium">嚴選二手良品，讓舊物煥發新生命</p>
-        </header>
-
-        <!-- 介紹區塊 -->
-        <section class="mb-10">
-            <!-- H2 標籤用來介紹次要主題，保持標題階層清晰 -->
-            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">關於我們</h2>
-            
-            <!-- 介紹圖片：讓網站更具視覺吸引力 -->
-            <!-- 更新圖片網址以正確顯示 -->
-            <img src="https://raw.githubusercontent.com/sanmu2025/sanmu2025.github.io/main/ind2.jpg" alt="三木良居二手傢俱與生活用品展示" class="w-full h-auto rounded-lg shadow-md mb-6">
-            
-            <p class="text-base text-gray-600 leading-relaxed">
-                我們致力於提供高品質的二手傢俱與生活用品。每一件商品都經過我們精心挑選與整理，
-                確保品質優良，為你的家居生活增添獨特風格。歡迎親臨實體店面參觀，或透過我們的線上賣場選購！
-            </p>
-        </section>
-
-        <hr class="border-t-2 border-gray-100 my-10">
-
-        <!-- 聯絡與資訊區塊 -->
-        <section class="space-y-6">
-            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-6">聯絡與資訊</h2>
-            
-            <!-- 蝦皮賣場連結 -->
-            <!-- 新增 title 屬性，提供連結更詳細的資訊，有助於 SEO -->
-            <a href="https://shopee.tw/sanmuliving" target="_blank" class="block w-full" title="前往三木良居的蝦皮賣場">
-                <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300 w-full sm:w-2/3 mx-auto">
-                    前往蝦皮賣場 👉
+    <!-- 導覽列 -->
+    <nav class="bg-white shadow-lg fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex-shrink-0 text-2xl font-bold text-gray-900">
+                    Sanmu Living
+                </a>
+                <div class="hidden sm:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <button onclick="showPage('home')" class="text-gray-500 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors">首頁</button>
+                        <!-- 預留的商品瀏覽連結 -->
+                        <button onclick="showPage('products')" class="text-gray-500 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors">商品瀏覽</button>
+                    </div>
+                </div>
+                <!-- 手機版選單按鈕 -->
+                <button id="mobile-menu-button" type="button" class="sm:hidden text-gray-500 hover:text-gray-700 focus:outline-none transition-colors">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
                 </button>
-            </a>
-
-            <!-- 官方 LINE 資訊 -->
-            <div class="flex items-center justify-center space-x-2 text-lg text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-green-500"><path d="M14.5 2h-9c-1.4 0-2.5 1.1-2.5 2.5v11.5c0 1.4 1.1 2.5 2.5 2.5h11.5c1.4 0 2.5-1.1 2.5-2.5V9.5z"/><path d="M11 13a2 2 0 100-4 2 2 0 000 4z"/></svg>
-                <span>官方 LINE：<span class="font-semibold">@971qrqbg</span></span>
             </div>
-
-            <!-- 電子郵件資訊 -->
-            <div class="flex items-center justify-center space-x-2 text-lg text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-500"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span>聯絡信箱：<span class="font-semibold">sanmuliving@gmail.com</span></span>
+        </div>
+        <!-- 手機版選單內容 -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button onclick="showPage('home')" class="text-gray-500 hover:bg-gray-100 block w-full text-left px-3 py-2 rounded-md text-base font-medium">首頁</button>
+                <button onclick="showPage('products')" class="text-gray-500 hover:bg-gray-100 block w-full text-left px-3 py-2 rounded-md text-base font-medium">商品瀏覽</button>
             </div>
+        </div>
+    </nav>
 
-            <!-- 地址資訊 -->
-            <div class="flex items-start justify-center space-x-2 text-lg text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-gray-500 mt-1"><path d="M12 2c-4.4 0-8 3.6-8 8s8 14 8 14 8-9.6 8-14-3.6-8-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div class="text-left">
-                    <span>實體店面地址：</span>
-                    <address class="font-semibold not-italic">
-                        臺中市清水區吳厝里和睦路三段250號
-                    </address>
+    <!-- 主內容區塊 -->
+    <main class="pt-20 pb-12 px-4 flex justify-center min-h-screen">
+        <div class="max-w-2xl w-full">
+
+            <!-- 首頁區塊 (home-page) -->
+            <div id="home-page" class="page-section fade-in">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden p-8 sm:p-12 text-center">
+
+                    <!-- 商店名稱與標語 -->
+                    <header class="mb-10">
+                        <h1 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-2 tracking-tight">三木良居 Sanmu Living</h1>
+                        <p class="text-lg sm:text-xl text-gray-600 font-medium">嚴選二手良品，讓舊物煥發新生命</p>
+                    </header>
+
+                    <!-- 介紹區塊 -->
+                    <section class="mb-10">
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-4">關於我們</h2>
+                        <img src="https://raw.githubusercontent.com/sanmu2025/sanmu2025.github.io/main/ind2.jpg" alt="三木良居二手傢俱與生活用品展示" class="w-full h-auto rounded-lg shadow-md mb-6">
+                        <p class="text-base text-gray-600 leading-relaxed">
+                            我們致力於提供高品質的二手良品與生活用品。每一件商品都經過我們精心挑選與整理，
+                            確保品質優良，為你的家居生活增添獨特風格。歡迎親臨實體店面參觀，或透過我們的線上賣場選購！
+                        </p>
+                    </section>
+
+                    <hr class="border-t-2 border-gray-100 my-10">
+
+                    <!-- 聯絡與資訊區塊 -->
+                    <section class="space-y-6">
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-6">聯絡與資訊</h2>
+                        
+                        <!-- 蝦皮賣場連結 -->
+                        <a href="https://shopee.tw/sanmuliving" target="_blank" class="block w-full" title="前往三木良居的蝦皮賣場">
+                            <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300 w-full sm:w-2/3 mx-auto">
+                                前往蝦皮賣場 👉
+                            </button>
+                        </a>
+
+                        <!-- 官方 LINE 資訊 -->
+                        <div class="flex items-center justify-center space-x-2 text-lg text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-green-500"><path d="M14.5 2h-9c-1.4 0-2.5 1.1-2.5 2.5v11.5c0 1.4 1.1 2.5 2.5 2.5h11.5c1.4 0 2.5-1.1 2.5-2.5V9.5z"/><path d="M11 13a2 2 0 100-4 2 2 0 000 4z"/></svg>
+                            <span>官方 LINE：<span class="font-semibold">@971qrqbg</span></span>
+                        </div>
+
+                        <!-- 電子郵件資訊 -->
+                        <div class="flex items-center justify-center space-x-2 text-lg text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-500"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>聯絡信箱：<span class="font-semibold">sanmuliving@gmail.com</span></span>
+                        </div>
+
+                        <!-- 地址資訊 -->
+                        <div class="flex items-start justify-center space-x-2 text-lg text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-gray-500 mt-1"><path d="M12 2c-4.4 0-8 3.6-8 8s8 14 8 14 8-9.6 8-14-3.6-8-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div class="text-left">
+                                <span>實體店面地址：</span>
+                                <address class="font-semibold not-italic">
+                                    臺中市清水區吳厝里和睦路三段250號
+                                </address>
+                            </div>
+                        </div>
+                        <!-- 嵌入 Google 地圖 -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.19027655943!2d120.60539517535206!3d24.270083678319306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691379ff25aa01%3A0xb8c996c06374c3f9!2z5p6X5qWK5LqU6YeR5pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1754357662433!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-80 sm:h-96 rounded-lg shadow-md mt-4"></iframe>
+                    </section>
                 </div>
             </div>
-            <!-- 嵌入 Google 地圖 -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.19027655943!2d120.60539517535206!3d24.270083678319306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691379ff25aa01%3A0xb8c996c06374c3f9!2z5p6X5qWK5LqU6YeR5pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1754357662433!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-80 sm:h-96 rounded-lg shadow-md mt-4"></iframe>
-        </section>
+            
+            <!-- 商品瀏覽頁面 (products-page) -->
+            <!-- 產品頁面是空的，等我們之後再補上內容 -->
+            <div id="products-page" class="page-section hidden fade-in">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-8 text-center">商品瀏覽</h1>
+                <div class="flex justify-center">
+                    <p class="text-gray-600 text-lg">產品頁面內容將在此處顯示...</p>
+                </div>
+            </div>
+            
+        </div>
+    </main>
 
-        <!-- 版權資訊 -->
-        <footer class="mt-12 text-sm text-gray-500">
-            <!-- 更新版權年份 -->
-            &copy; 2025 三木良居Sanmu Living. All rights reserved.
-        </footer>
-    </div>
+    <!-- 版權資訊 -->
+    <footer class="text-center text-sm text-gray-500 pb-4">
+        &copy; 2025 三木良居Sanmu Living. All rights reserved.
+    </footer>
+
+    <script>
+        // 顯示指定頁面並隱藏其他頁面
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('fade-in');
+            });
+            const currentPage = document.getElementById(pageId + '-page');
+            if (currentPage) {
+                currentPage.classList.remove('hidden');
+                currentPage.classList.add('fade-in');
+            }
+        }
+        
+        // 手機版選單切換
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
 </body>
 </html>
