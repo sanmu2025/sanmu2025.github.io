@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="三木良居 Sanmu Living 商品瀏覽頁面。提供高品質二手良品與生活用品的詳細照片相簿。">
+    <meta name="description" content="三木良居 Sanmu Living 商品瀏覽頁面。提供高品質二手傢俱與生活用品的詳細照片相簿。">
     <title>商品瀏覽 - 三木良居 Sanmu Living</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
@@ -90,8 +90,7 @@
     <!--
         這是商品資料儲存的地方。
         請在這裡修改、新增或刪除商品資訊。
-        每個物件都代表一個商品，包含 id、name 和 images 陣列。
-        images 陣列中的字串就是你圖片的完整網址。
+        每個物件都代表一個商品，包含 id、name、images 陣列，以及 shopeeUrl 購買連結。
     -->
     <script id="product-data" type="application/json">
         [
@@ -102,7 +101,8 @@
                     "https://placehold.co/600x400/D1C4E9/FFFFFF?text=書櫃+正面",
                     "https://placehold.co/600x400/B39DDB/FFFFFF?text=書櫃+側面",
                     "https://placehold.co/600x400/9575CD/FFFFFF?text=書櫃+細節"
-                ]
+                ],
+                "shopeeUrl": "https://shopee.tw/your-shopee-product-link"
             },
             {
                 "id": 2,
@@ -111,7 +111,8 @@
                     "https://placehold.co/600x400/E57373/FFFFFF?text=餐桌+正面",
                     "https://placehold.co/600x400/EF5350/FFFFFF?text=餐桌+細節",
                     "https://placehold.co/600x400/E53935/FFFFFF?text=餐桌+特寫"
-                ]
+                ],
+                "shopeeUrl": ""
             },
             {
                 "id": 3,
@@ -119,7 +120,8 @@
                 "images": [
                     "https://placehold.co/600x400/81C784/FFFFFF?text=沙發+正面",
                     "https://placehold.co/600x400/66BB6A/FFFFFF?text=沙發+側面"
-                ]
+                ],
+                "shopeeUrl": "https://shopee.tw/your-shopee-product-link"
             },
             {
                 "id": 4,
@@ -127,7 +129,8 @@
                 "images": [
                     "https://placehold.co/600x400/A1887F/FFFFFF?text=收納櫃+正面",
                     "https://placehold.co/600x400/8D6E63/FFFFFF?text=收納櫃+細節"
-                ]
+                ],
+                "shopeeUrl": ""
             },
             {
                 "id": 5,
@@ -135,7 +138,8 @@
                 "images": [
                     "https://placehold.co/600x400/F06292/FFFFFF?text=茶几+正面",
                     "https://placehold.co/600x400/EC407A/FFFFFF?text=茶几+頂部"
-                ]
+                ],
+                "shopeeUrl": "https://shopee.tw/your-shopee-product-link"
             },
             {
                 "id": 6,
@@ -143,7 +147,8 @@
                 "images": [
                     "https://placehold.co/600x400/BA68C8/FFFFFF?text=單椅+正面",
                     "https://placehold.co/600x400/AB47BC/FFFFFF?text=單椅+側面"
-                ]
+                ],
+                "shopeeUrl": ""
             },
             {
                 "id": 7,
@@ -151,7 +156,8 @@
                 "images": [
                     "https://placehold.co/600x400/4DB6AC/FFFFFF?text=層架組+正面",
                     "https://placehold.co/600x400/26A69A/FFFFFF?text=層架組+細節"
-                ]
+                ],
+                "shopeeUrl": "https://shopee.tw/your-shopee-product-link"
             },
             {
                 "id": 8,
@@ -159,7 +165,8 @@
                 "images": [
                     "https://placehold.co/600x400/FFB74D/FFFFFF?text=床頭櫃+正面",
                     "https://placehold.co/600x400/FFA726/FFFFFF?text=床頭櫃+抽屜"
-                ]
+                ],
+                "shopeeUrl": ""
             },
             {
                 "id": 9,
@@ -167,7 +174,8 @@
                 "images": [
                     "https://placehold.co/600x400/64B5F6/FFFFFF?text=展示櫃+正面",
                     "https://placehold.co/600x400/42A5F5/FFFFFF?text=展示櫃+側面"
-                ]
+                ],
+                "shopeeUrl": "https://shopee.tw/your-shopee-product-link"
             },
             {
                 "id": 10,
@@ -175,7 +183,8 @@
                 "images": [
                     "https://placehold.co/600x400/FF8A65/FFFFFF?text=藤椅+正面",
                     "https://placehold.co/600x400/FF7043/FFFFFF?text=藤椅+細節"
-                ]
+                ],
+                "shopeeUrl": ""
             }
         ]
     </script>
@@ -216,9 +225,16 @@
                     <img src="${product.images[0]}" alt="${product.name}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
-                        <button onclick="showPage('product-album', ${product.id})" class="mt-4 bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105">
-                            查看相簿
-                        </button>
+                        <!-- 按鈕區塊使用 flex 佈局 -->
+                        <div class="flex space-x-2 mt-4">
+                            <button onclick="showPage('product-album', ${product.id})" class="flex-1 bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105">
+                                查看相簿
+                            </button>
+                            <!-- 只有當 shopeeUrl 存在時才顯示蝦皮購買按鈕 -->
+                            ${product.shopeeUrl ? `<a href="${product.shopeeUrl}" target="_blank" class="flex-1 bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full text-center transition-all duration-300 transform hover:scale-105">
+                                前往蝦皮購買
+                            </a>` : ''}
+                        </div>
                     </div>
                 </div>
             `).join('');
