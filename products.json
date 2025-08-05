@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "復古木質書櫃",
+    "images": [
+      "https://placehold.co/600x400/D1C4E9/FFFFFF?text=書櫃+正面",
+      "https://placehold.co/600x400/B39DDB/FFFFFF?text=書櫃+側面",
+      "https://placehold.co/600x400/9575CD/FFFFFF?text=書櫃+細節"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "簡約造型餐桌",
+    "images": [
+      "https://placehold.co/600x400/E57373/FFFFFF?text=餐桌+正面",
+      "https://placehold.co/600x400/EF5350/FFFFFF?text=餐桌+細節",
+      "https://placehold.co/600x400/E53935/FFFFFF?text=餐桌+特寫"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "北歐風單人沙發",
+    "images": [
+      "https://placehold.co/600x400/81C784/FFFFFF?text=沙發+正面",
+      "https://placehold.co/600x400/66BB6A/FFFFFF?text=沙發+側面"
+    ]
+  }
+]
