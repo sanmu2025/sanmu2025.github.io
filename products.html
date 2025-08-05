@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="三木良居 Sanmu Living 商品瀏覽頁面。提供高品質二手傢俱與生活用品的詳細照片相簿。">
+    <title>商品瀏覽 - 三木良居 Sanmu Living</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* 頁面切換的簡單淡入動畫 */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 導覽列 -->
+    <nav class="bg-white shadow-lg fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex-shrink-0 text-2xl font-bold text-gray-900">
+                    Sanmu Living
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主內容區塊 -->
+    <main class="pt-20 pb-12 px-4 flex justify-center min-h-screen">
+        <div class="max-w-2xl w-full">
+
+            <!-- 商品瀏覽頁面 (products-page) -->
+            <div id="products-page" class="page-section fade-in">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-8 text-center">商品瀏覽</h1>
+                <div id="products-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 商品卡片會由 JavaScript 渲染到這裡 -->
+                </div>
+            </div>
+
+            <!-- 商品相簿頁面 (product-album-page) -->
+            <div id="product-album-page" class="page-section hidden fade-in">
+                <button onclick="showPage('products')" class="mb-6 flex items-center text-gray-600 hover:text-gray-800 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                    返回商品列表
+                </button>
+                <h1 id="product-album-title" class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 text-center"></h1>
+                <div id="product-album-images" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- 商品圖片會由 JavaScript 渲染到這裡 -->
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- 版權資訊 -->
+    <footer class="text-center text-sm text-gray-500 pb-4">
+        &copy; 2025 三木良居Sanmu Living. All rights reserved.
+    </footer>
+
+    <!-- 商品資料獨立出來，用 JSON 格式儲存 -->
+    <script id="product-data" type="application/json">
+        [
+            {
+                "id": 1,
+                "name": "復古木質書櫃",
+                "images": [
+                    "https://placehold.co/600x400/D1C4E9/FFFFFF?text=書櫃+正面",
+                    "https://placehold.co/600x400/B39DDB/FFFFFF?text=書櫃+側面",
+                    "https://placehold.co/600x400/9575CD/FFFFFF?text=書櫃+細節"
+                ]
+            },
+            {
+                "id": 2,
+                "name": "簡約造型餐桌",
+                "images": [
+                    "https://placehold.co/600x400/E57373/FFFFFF?text=餐桌+正面",
+                    "https://placehold.co/600x400/EF5350/FFFFFF?text=餐桌+細節",
+                    "https://placehold.co/600x400/E53935/FFFFFF?text=餐桌+特寫"
+                ]
+            },
+            {
+                "id": 3,
+                "name": "北歐風單人沙發",
+                "images": [
+                    "https://placehold.co/600x400/81C784/FFFFFF?text=沙發+正面",
+                    "https://placehold.co/600x400/66BB6A/FFFFFF?text=沙發+側面"
+                ]
+            },
+            {
+                "id": 4,
+                "name": "工業風鐵架收納櫃",
+                "images": [
+                    "https://placehold.co/600x400/A1887F/FFFFFF?text=收納櫃+正面",
+                    "https://placehold.co/600x400/8D6E63/FFFFFF?text=收納櫃+細節"
+                ]
+            },
+            {
+                "id": 5,
+                "name": "日式禪風茶几",
+                "images": [
+                    "https://placehold.co/600x400/F06292/FFFFFF?text=茶几+正面",
+                    "https://placehold.co/600x400/EC407A/FFFFFF?text=茶几+頂部"
+                ]
+            },
+            {
+                "id": 6,
+                "name": "經典皮革單椅",
+                "images": [
+                    "https://placehold.co/600x400/BA68C8/FFFFFF?text=單椅+正面",
+                    "https://placehold.co/600x400/AB47BC/FFFFFF?text=單椅+側面"
+                ]
+            },
+            {
+                "id": 7,
+                "name": "實木層架組",
+                "images": [
+                    "https://placehold.co/600x400/4DB6AC/FFFFFF?text=層架組+正面",
+                    "https://placehold.co/600x400/26A69A/FFFFFF?text=層架組+細節"
+                ]
+            },
+            {
+                "id": 8,
+                "name": "現代簡約床頭櫃",
+                "images": [
+                    "https://placehold.co/600x400/FFB74D/FFFFFF?text=床頭櫃+正面",
+                    "https://placehold.co/600x400/FFA726/FFFFFF?text=床頭櫃+抽屜"
+                ]
+            },
+            {
+                "id": 9,
+                "name": "玻璃展示櫃",
+                "images": [
+                    "https://placehold.co/600x400/64B5F6/FFFFFF?text=展示櫃+正面",
+                    "https://placehold.co/600x400/42A5F5/FFFFFF?text=展示櫃+側面"
+                ]
+            },
+            {
+                "id": 10,
+                "name": "編織藤椅",
+                "images": [
+                    "https://placehold.co/600x400/FF8A65/FFFFFF?text=藤椅+正面",
+                    "https://placehold.co/600x400/FF7043/FFFFFF?text=藤椅+細節"
+                ]
+            }
+        ]
+    </script>
+
+    <script>
+        // 取得並解析 JSON 資料
+        const productDataElement = document.getElementById('product-data');
+        const products = JSON.parse(productDataElement.textContent);
+
+        // JavaScript 邏輯：處理頁面切換和渲染商品資訊
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            showPage('products'); // 預設顯示商品瀏覽頁
+        });
+
+        // 顯示指定頁面並隱藏其他頁面
+        function showPage(pageId, productId = null) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('fade-in');
+            });
+            const currentPage = document.getElementById(pageId + '-page');
+            if (currentPage) {
+                currentPage.classList.remove('hidden');
+                currentPage.classList.add('fade-in');
+            }
+
+            if (pageId === 'product-album' && productId !== null) {
+                renderProductAlbum(productId);
+            }
+        }
+        
+        // 渲染商品列表
+        function renderProducts() {
+            const productsList = document.getElementById('products-list');
+            productsList.innerHTML = products.map(product => `
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <img src="${product.images[0]}" alt="${product.name}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
+                        <button onclick="showPage('product-album', ${product.id})" class="mt-4 bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105">
+                            查看相簿
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 渲染單一商品相簿
+        function renderProductAlbum(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            document.getElementById('product-album-title').textContent = product.name;
+            const albumImagesContainer = document.getElementById('product-album-images');
+            albumImagesContainer.innerHTML = product.images.map(image => `
+                <img src="${image}" alt="${product.name}圖片" class="w-full h-auto rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+            `).join('');
+        }
+    </script>
+
+</body>
+</html>
