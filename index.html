@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <!-- ========= Meta 資訊與標題 ========= -->
+    <!-- 以下是網站的基本設定，通常不需要修改 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 您可以在這裡修改瀏覽器分頁上顯示的網站標題 -->
+    <title>三木良居 Sanmu Living - 嚴選二手良品</title>
+
+    <!-- ========= 外部資源連結 ========= -->
+    <!-- 引入 Tailwind CSS 框架，用於網站樣式設計 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts 的字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- ========= 自訂樣式 ========= -->
+    <style>
+        /* 設定整個網站的預設字體 */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        /* 設定主視覺區塊的背景圖片 */
+        /* 您可以更換 url('...') 中的圖片網址來改變背景圖 */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format&fit=crop');
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- =================================================================== -->
+    <!--                            網站頂部導覽列                            -->
+    <!-- =================================================================== -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- LOGO / 網站名稱 -->
+            <!-- 您可以修改這裡的文字 -->
+            <a href="#" class="text-2xl font-bold text-stone-700">
+                三木良居 <span class="text-green-800">Sanmu Living</span>
+            </a>
+            <!-- 導覽列連結 -->
+            <!-- href="#about" 會跳轉到 id="about" 的區塊 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-stone-600 hover:text-green-800 transition duration-300">關於我們</a>
+                <a href="#contact" class="text-stone-600 hover:text-green-800 transition duration-300">聯絡資訊</a>
+                <a href="#location" class="text-stone-600 hover:text-green-800 transition duration-300">實體位置</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- =================================================================== -->
+        <!--                              主視覺區塊                              -->
+        <!-- =================================================================== -->
+        <section id="hero" class="hero-bg bg-cover bg-center h-[60vh] md:h-[70vh] flex items-center justify-center relative">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="text-center text-white z-10 p-4">
+                <!-- 您可以在這裡修改主標題和副標題 -->
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">嚴選二手良品</h1>
+                <p class="text-xl md:text-2xl font-light">讓舊物煥發新生命</p>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!--                              關於我們區塊                            -->
+        <!-- =================================================================== -->
+        <section id="about" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <!-- 您可以修改區塊標題 -->
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">關於我們</h2>
+                <div class="w-20 h-1 bg-green-700 mx-auto mb-8 rounded"></div>
+                <!-- 您可以在這裡修改關於我們的介紹文字 -->
+                <p class="text-lg text-stone-600 leading-relaxed">
+                    我們致力於提供高品質的二手良品與生活用品。每一件商品都經過我們精心挑選與整理，確保物品可再次使用，為你的家居生活增添獨特風格。歡迎親臨實體店面參觀，或透過我們的線上賣場選購！
+                </p>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!--                             聯絡與資訊區塊                           -->
+        <!-- =================================================================== -->
+        <section id="contact" class="py-20 md:py-28 bg-stone-100">
+            <div class="container mx-auto px-6">
+                <!-- 您可以修改區塊標題 -->
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-green-800 mb-6">聯絡與資訊</h2>
+                <div class="w-20 h-1 bg-green-700 mx-auto mb-12 rounded"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <!-- 左半部: 線上賣場與社群 -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-stone-700 border-b-2 border-green-700 pb-2">線上賣場與社群</h3>
+                        <!-- 您可以修改 href="..." 來更換連結，並修改中間的文字 -->
+                        <a href="https://shopee.tw/sanmuliving" target="_blank" class="flex items-center space-x-4 group">
+                            <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <span class="text-lg text-stone-600 group-hover:text-green-800 transition duration-300">蝦皮賣場</span>
+                        </a>
+                        <a href="https://tw.carousell.com/u/sanmuliving/" target="_blank" class="flex items-center space-x-4 group">
+                            <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            <span class="text-lg text-stone-600 group-hover:text-green-800 transition duration-300">旋轉拍賣</span>
+                        </a>
+                        <a href="https://www.instagram.com/sanmu_living/" target="_blank" class="flex items-center space-x-4 group">
+                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span class="text-lg text-stone-600 group-hover:text-green-800 transition duration-300">Instagram</span>
+                        </a>
+                        <div class="flex items-center space-x-4">
+                            <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                            <span class="text-lg text-stone-600">官方 LINE：@971qrqbg</span>
+                        </div>
+                    </div>
+
+                    <!-- 右半部: 實體店面與信箱 -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-stone-700 border-b-2 border-green-700 pb-2">實體店面與信箱</h3>
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-8 h-8 text-green-700 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <div>
+                                <h4 class="text-lg font-semibold text-stone-600">實體店面地址</h4>
+                                <!-- 您可以修改地址文字 -->
+                                <p class="text-lg text-stone-600">臺中市清水區吳厝里和睦路三段250號</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                           <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                           <div>
+                                <h4 class="text-lg font-semibold text-stone-600">聯絡信箱</h4>
+                                <!-- 您可以修改電子信箱 -->
+                                <p class="text-lg text-stone-600">sanmuliving@gmail.com</p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!--                         新增的實體位置 (地圖) 區塊                     -->
+        <!-- =================================================================== -->
+        <section id="location" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <!-- 您可以修改區塊標題 -->
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-green-800 mb-6">我們的實體位置</h2>
+                <div class="w-20 h-1 bg-green-700 mx-auto mb-12 rounded"></div>
+                <p class="text-center text-lg text-stone-600 mb-8 max-w-2xl mx-auto">歡迎親臨參觀，期待您的光臨！</p>
+                
+                <!-- 嵌入 Google 地圖 -->
+                <!-- max-w-6xl mx-auto 讓地圖在大螢幕上不會過寬，保持美觀 -->
+                <div class="max-w-6xl mx-auto rounded-lg shadow-xl overflow-hidden">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.19027655943!2d120.60539517535206!3d24.270083678319306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691379ff25aa01%3A0xb8c996c06374c3f9!2z5p6X5qWK5LqU6YeR5pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1754357662433!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-96 md:h-[500px]"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =================================================================== -->
+    <!--                              網站頁尾                               -->
+    <!-- =================================================================== -->
+    <footer class="bg-stone-800 text-stone-300 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <!-- 您可以修改年份和版權文字 -->
+            <p>&copy; 2025 三木良居Sanmu Living. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
