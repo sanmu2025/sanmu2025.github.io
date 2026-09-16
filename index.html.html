@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三木良居 Sanmu Living - 嚴選二手良品</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'retro-bg': '#F7F3E9',
+                        'retro-paper': '#FFFDF7',
+                        'retro-green': '#3B5940',
+                        'retro-lightgreen': '#E2EBE2',
+                        'retro-amber': '#D97736',
+                        'retro-yellow': '#F3E5AB',
+                        'retro-brown': '#5C4033',
+                        'retro-dark': '#2B2523',
+                    },
+                    boxShadow: {
+                        'retro': '4px 4px 0px #2B2523',
+                        'retro-lg': '6px 6px 0px #2B2523',
+                        'retro-sm': '2px 2px 0px #2B2523',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: 圓體與宋體打造懷舊復古感 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: #F7F3E9;
+            background-image: radial-gradient(#d5cebe 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #2B2523;
+        }
+
+        .font-serif-title {
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        /* 郵票邊框效果 */
+        .stamp-edge {
+            background: radial-gradient(transparent 0px, transparent 4px, #FFFDF7 4px, #FFFDF7);
+            background-size: 12px 12px;
+            background-position: -6px -6px;
+        }
+
+        /* 和紙膠帶裝飾 */
+        .washi-tape {
+            background-color: rgba(243, 229, 171, 0.7);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+        }
+
+        /* 鋸齒邊緣 */
+        .zigzag-border {
+            background: linear-gradient(-135deg, #FFFDF7 8px, transparent 0), linear-gradient(135deg, #FFFDF7 8px, transparent 0);
+            background-position: left bottom;
+            background-repeat: repeat-x;
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-retro-yellow selection:text-retro-dark">
+
+    <!-- =================================================================== -->
+    <!--                            網站頂部導覽列                            -->
+    <!-- =================================================================== -->
+    <header class="sticky top-0 z-50 bg-retro-paper/90 backdrop-blur-md border-b-2 border-retro-dark shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- LOGO / 網站名稱 -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <!-- 可愛復古小屋與小樹 SVG -->
+                <div class="w-10 h-10 bg-retro-green rounded-full border-2 border-retro-dark flex items-center justify-center shadow-retro-sm group-hover:rotate-6 transition-transform">
+                    <svg class="w-6 h-6 text-retro-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="8" r="1.5" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xl md:text-2xl font-bold font-serif-title tracking-wider text-retro-dark block leading-none">三木良居</span>
+                    <span class="text-xs font-semibold text-retro-amber tracking-widest uppercase">Sanmu Living</span>
+                </div>
+            </a>
+
+            <!-- 導覽連結 -->
+            <nav class="hidden md:flex items-center space-x-2">
+                <a href="#about" class="px-3 py-1.5 font-bold hover:bg-retro-yellow rounded-lg border border-transparent hover:border-retro-dark transition-all">關於我們</a>
+                <a href="#online-stores" class="px-3 py-1.5 font-bold hover:bg-retro-yellow rounded-lg border border-transparent hover:border-retro-dark transition-all">線上賣場</a>
+                <a href="#contact" class="px-3 py-1.5 font-bold hover:bg-retro-yellow rounded-lg border border-transparent hover:border-retro-dark transition-all">聯絡我們</a>
+                <a href="#location" class="px-4 py-1.5 bg-retro-amber text-white font-bold rounded-lg border-2 border-retro-dark shadow-retro-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">實體位置</a>
+            </nav>
+
+            <!-- 行動端選單按鈕 (導航至區塊) -->
+            <div class="flex md:hidden space-x-2 text-xs font-bold">
+                <a href="#online-stores" class="px-2 py-1 bg-retro-yellow border border-retro-dark rounded">賣場</a>
+                <a href="#location" class="px-2 py-1 bg-retro-green text-white border border-retro-dark rounded">地圖</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow space-y-16 py-8">
+
+        <!-- =================================================================== -->
+        <!--                              主視覺區塊                              -->
+        <!-- =================================================================== -->
+        <section id="hero" class="container mx-auto px-4 max-w-5xl">
+            <div class="relative bg-retro-paper border-4 border-retro-dark rounded-3xl p-6 md:p-12 shadow-retro-lg overflow-hidden">
+                
+                <!-- 和紙膠帶裝飾 -->
+                <div class="washi-tape absolute -top-3 left-12 w-32 h-8 z-10"></div>
+                <div class="washi-tape absolute -bottom-3 right-12 w-32 h-8 z-10"></div>
+
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    <!-- 左側標題區 -->
+                    <div class="md:col-span-7 space-y-6 text-center md:text-left z-10">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 bg-retro-lightgreen border-2 border-retro-dark rounded-full text-xs font-bold text-retro-green">
+                            <span class="w-2 h-2 rounded-full bg-retro-green animate-ping"></span>
+                            <span>老物件 ‧ 舊時光 ‧ 新生命</span>
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-bold font-serif-title leading-tight text-retro-dark">
+                            嚴選二手良品<br/>
+                            <span class="text-retro-amber relative inline-block mt-2">
+                                讓舊物煥發新生命
+                            </span>
+                        </h1>
+                        <p class="text-retro-brown text-base md:text-lg leading-relaxed max-w-lg">
+                            每一件生活舊物，都承載著一段美好的時光故事。我們用心淘選與修復，為您的空間注入獨一無二的懷舊質感。
+                        </p>
+                        
+                        <div class="pt-2 flex flex-wrap gap-4 justify-center md:justify-start">
+                            <a href="#online-stores" class="px-6 py-3 bg-retro-green text-white font-bold rounded-xl border-2 border-retro-dark shadow-retro hover:-translate-y-0.5 hover:shadow-retro-lg transition-all flex items-center space-x-2">
+                                <span>尋寶趣 ‧ 線上逛逛</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 右側可愛懷舊 SVG 插圖區 -->
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 bg-retro-yellow/40 rounded-full border-2 border-dashed border-retro-dark flex items-center justify-center p-4">
+                            <!-- 可愛復古二手書櫃與書籍插圖 SVG -->
+                            <svg class="w-full h-full text-retro-dark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 地毯影 -->
+                                <ellipse cx="100" cy="172" rx="70" ry="14" fill="#E2EBE2" stroke="#2B2523" stroke-width="3"/>
+                                
+                                <!-- 復古木質書櫃主體 -->
+                                <rect x="45" y="35" width="110" height="130" rx="6" fill="#5C4033" stroke="#2B2523" stroke-width="3"/>
+                                <!-- 書櫃背板 -->
+                                <rect x="52" y="42" width="96" height="116" fill="#D97736" opacity="0.3"/>
+                                
+                                <!-- 書櫃層板 1 -->
+                                <rect x="48" y="80" width="104" height="6" rx="2" fill="#5C4033" stroke="#2B2523" stroke-width="2"/>
+                                <!-- 書櫃層板 2 -->
+                                <rect x="48" y="122" width="104" height="6" rx="2" fill="#5C4033" stroke="#2B2523" stroke-width="2"/>
+
+                                <!-- === 上層：二手書 (豎放與斜放) === -->
+                                <!-- 書 1 (綠) -->
+                                <rect x="58" y="48" width="10" height="32" rx="1" fill="#3B5940" stroke="#2B2523" stroke-width="2"/>
+                                <line x1="63" y1="52" x2="63" y2="76" stroke="#F3E5AB" stroke-width="1.5"/>
+                                <!-- 書 2 (橙) -->
+                                <rect x="69" y="52" width="12" height="28" rx="1" fill="#D97736" stroke="#2B2523" stroke-width="2"/>
+                                <!-- 書 3 (米黃) -->
+                                <rect x="82" y="46" width="9" height="34" rx="1" fill="#F3E5AB" stroke="#2B2523" stroke-width="2"/>
+                                <!-- 書 4 (深棕) -->
+                                <rect x="92" y="50" width="11" height="30" rx="1" fill="#2B2523" stroke="#2B2523" stroke-width="2"/>
+                                
+                                <!-- 傾斜的書 (紅/棕) -->
+                                <g transform="translate(112, 78) rotate(-18)">
+                                    <rect x="0" y="-30" width="10" height="30" rx="1" fill="#D97736" stroke="#2B2523" stroke-width="2"/>
+                                </g>
+
+                                <!-- 頂部裝飾小盆栽 -->
+                                <path d="M130 42 L132 30 L144 30 L146 42 Z" fill="#D97736" stroke="#2B2523" stroke-width="2"/>
+                                <circle cx="134" cy="25" r="5" fill="#3B5940" stroke="#2B2523" stroke-width="1.5"/>
+                                <circle cx="142" cy="23" r="6" fill="#3B5940" stroke="#2B2523" stroke-width="1.5"/>
+                                <circle cx="138" cy="18" r="5" fill="#3B5940" stroke="#2B2523" stroke-width="1.5"/>
+
+                                <!-- === 中層：橫疊書與立書 === -->
+                                <!-- 橫疊書 1 -->
+                                <rect x="58" y="112" width="35" height="10" rx="2" fill="#3B5940" stroke="#2B2523" stroke-width="2"/>
+                                <!-- 橫疊書 2 -->
+                                <rect x="60" y="103" width="31" height="9" rx="2" fill="#F3E5AB" stroke="#2B2523" stroke-width="2"/>
+                                <!-- 橫疊書 3 -->
+                                <rect x="62" y="95" width="27" height="8" rx="2" fill="#D97736" stroke="#2B2523" stroke-width="2"/>
+                                
+                                <!-- 豎放書群 (右邊) -->
+                                <rect x="100" y="88" width="11" height="34" rx="1" fill="#2B2523" stroke="#2B2523" stroke-width="2"/>
+                                <rect x="112" y="92" width="10" height="30" rx="1" fill="#3B5940" stroke="#2B2523" stroke-width="2"/>
+                                <rect x="123" y="86" width="13" height="36" rx="1" fill="#D97736" stroke="#2B2523" stroke-width="2"/>
+                                <rect x="137" y="90" width="9" height="32" rx="1" fill="#F3E5AB" stroke="#2B2523" stroke-width="2"/>
+
+                                <!-- === 下層：收納盒與大型舊書 === -->
+                                <!-- 復古收納檔案盒 -->
+                                <rect x="58" y="130" width="40" height="28" rx="3" fill="#FFFDF7" stroke="#2B2523" stroke-width="2"/>
+                                <rect x="70" y="140" width="16" height="8" rx="2" fill="#F3E5AB" stroke="#2B2523" stroke-width="1.5"/>
+                                <circle cx="78" cy="144" r="1.5" fill="#2B2523"/>
+
+                                <!-- 精裝舊書 -->
+                                <rect x="105" y="128" width="14" height="30" rx="1" fill="#3B5940" stroke="#2B2523" stroke-width="2"/>
+                                <rect x="120" y="132" width="12" height="26" rx="1" fill="#5C4033" stroke="#2B2523" stroke-width="2"/>
+                                <rect x="133" y="130" width="13" height="28" rx="1" fill="#D97736" stroke="#2B2523" stroke-width="2"/>
+
+                                <!-- 書櫃腳 -->
+                                <rect x="50" y="165" width="10" height="8" rx="1" fill="#2B2523"/>
+                                <rect x="140" y="165" width="10" height="8" rx="1" fill="#2B2523"/>
+                                
+                                <!-- 閃爍幾何裝飾 -->
+                                <path d="M162 60 L164 65 L169 65 L165 68 L167 73 L162 70 L157 73 L159 68 L155 65 L160 65 Z" fill="#F3E5AB" stroke="#2B2523" stroke-width="1"/>
+                                <circle cx="38" cy="75" r="3" fill="#D97736"/>
+                            </svg>
+
+                            <!-- 復古印章標籤裝飾 -->
+                            <div class="absolute -bottom-2 -left-2 bg-retro-paper border-2 border-retro-dark px-3 py-1 rounded-lg shadow-retro-sm transform -rotate-6">
+                                <span class="text-xs font-bold text-retro-green">✦ 二手書 ‧ 懷舊傢俱 ✦</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!--                              關於我們區塊                            -->
+        <!-- =================================================================== -->
+        <section id="about" class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-retro-paper border-3 border-retro-dark rounded-2xl p-6 md:p-10 shadow-retro relative">
+                
+                <!-- 標題 stamp 標籤 -->
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 bg-retro-amber text-white font-bold rounded-lg flex items-center justify-center border border-retro-dark">
+                        01
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold font-serif-title text-retro-dark">關於三木良居</h2>
+                </div>
+
+                <div class="grid md:grid-cols-12 gap-6 items-center">
+                    <!-- 左側文字 -->
+                    <div class="md:col-span-8 space-y-4 text-retro-dark text-base md:text-lg leading-relaxed">
+                        <p>
+                            我們致力於提供高品質的二手良品與生活用品。每一件商品都經過我們精心挑選與整理，確保物品可再次使用，為你的家居生活增添獨特風格。
+                        </p>
+                        <p class="text-retro-brown text-sm md:text-base">
+                            無論是充滿知識的二手書、十幾年前的陶瓷器皿，或是帶有時代印記的雜貨，歡迎親臨實體店面參觀挖寶，或透過我們的線上賣場選購！
+                        </p>
+                    </div>
+
+                    <!-- 右側郵票感插圖 -->
+                    <div class="md:col-span-4 flex justify-center">
+                        <div class="bg-retro-lightgreen border-2 border-dashed border-retro-dark p-4 rounded-xl text-center shadow-retro-sm transform rotate-2">
+                            <!-- 可愛舊式電視機 SVG -->
+                            <svg class="w-24 h-24 mx-auto text-retro-dark" viewBox="0 0 100 100" fill="none">
+                                <rect x="15" y="30" width="70" height="55" rx="8" fill="#FFFDF7" stroke="#2B2523" stroke-width="3"/>
+                                <rect x="23" y="38" width="45" height="39" rx="4" fill="#3B5940" stroke="#2B2523" stroke-width="2"/>
+                                <circle cx="77" cy="45" r="4" fill="#D97736" stroke="#2B2523" stroke-width="2"/>
+                                <circle cx="77" cy="58" r="4" fill="#F3E5AB" stroke="#2B2523" stroke-width="2"/>
+                                <line x1="73" y1="70" x2="81" y2="70" stroke="#2B2523" stroke-width="2" stroke-linecap="round"/>
+                                <!-- 天線 -->
+                                <line x1="35" y1="15" x2="45" y2="30" stroke="#2B2523" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="65" y1="15" x2="55" y2="30" stroke="#2B2523" stroke-width="3" stroke-linecap="round"/>
+                                <!-- 電視腳 -->
+                                <line x1="25" y1="85" x2="20" y2="93" stroke="#2B2523" stroke-width="3" stroke-linecap="round"/>
+                                <line x1="75" y1="85" x2="80" y2="93" stroke="#2B2523" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-xs font-bold text-retro-green block mt-2">尋訪舊時光物事</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!--                         線上賣場與社群 區塊                          -->
+        <!-- =================================================================== -->
+        <section id="online-stores" class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold tracking-widest text-retro-amber uppercase block mb-1">ONLINE SHOPPING</span>
+                <h2 class="text-3xl font-bold font-serif-title text-retro-dark">線上賣場與社群</h2>
+                <div class="w-16 h-1 bg-retro-amber mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 md:gap-6">
+                
+                <!-- 蝦皮賣場卡片 -->
+                <a href="https://shopee.tw/sanmuliving" target="_blank" class="group bg-retro-paper border-2 border-retro-dark rounded-xl p-5 shadow-retro hover:shadow-retro-lg hover:-translate-y-1 transition-all flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-[#FF5722]/10 border-2 border-retro-dark rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <!-- 可愛購物籃/購物車 SVG -->
+                        <svg class="w-8 h-8 text-[#FF5722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-retro-dark group-hover:text-retro-amber transition-colors">蝦皮賣場</h3>
+                            <span class="text-xs font-bold px-2 py-0.5 bg-retro-yellow border border-retro-dark rounded">Shopee</span>
+                        </div>
+                        <p class="text-xs text-retro-brown mt-1">精選物件熱賣中 ‧ 方便下單</p>
+                    </div>
+                </a>
+
+                <!-- 旋轉拍賣卡片 -->
+                <a href="https://tw.carousell.com/u/sanmuliving/" target="_blank" class="group bg-retro-paper border-2 border-retro-dark rounded-xl p-5 shadow-retro hover:shadow-retro-lg hover:-translate-y-1 transition-all flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-[#D32F2F]/10 border-2 border-retro-dark rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <!-- 可愛旋轉木馬/黑膠標籤 SVG -->
+                        <svg class="w-8 h-8 text-[#D32F2F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="9"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-retro-dark group-hover:text-retro-amber transition-colors">旋轉拍賣</h3>
+                            <span class="text-xs font-bold px-2 py-0.5 bg-retro-yellow border border-retro-dark rounded">Carousell</span>
+                        </div>
+                        <p class="text-xs text-retro-brown mt-1">挖寶二手好物 ‧ 挖寶隨手拍</p>
+                    </div>
+                </a>
+
+                <!-- Instagram 卡片 -->
+                <a href="https://www.instagram.com/sanmu_living/" target="_blank" class="group bg-retro-paper border-2 border-retro-dark rounded-xl p-5 shadow-retro hover:shadow-retro-lg hover:-translate-y-1 transition-all flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-[#E1306C]/10 border-2 border-retro-dark rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <!-- 可愛復古相機 SVG -->
+                        <svg class="w-8 h-8 text-[#E1306C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="6" width="20" height="15" rx="3"/>
+                            <circle cx="12" cy="13.5" r="4"/>
+                            <path d="M7 6V4a1 1 0 011-1h8a1 1 0 011 1v2"/>
+                            <circle cx="17.5" cy="9.5" r="0.5" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-retro-dark group-hover:text-retro-amber transition-colors">Instagram</h3>
+                            <span class="text-xs font-bold px-2 py-0.5 bg-retro-yellow border border-retro-dark rounded">@sanmu_living</span>
+                        </div>
+                        <p class="text-xs text-retro-brown mt-1">新品搶先看 ‧ 生活日常動態</p>
+                    </div>
+                </a>
+
+                <!-- 官方 LINE 卡片 -->
+                <div class="bg-retro-paper border-2 border-retro-dark rounded-xl p-5 shadow-retro flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-[#00B900]/10 border-2 border-retro-dark rounded-xl flex items-center justify-center shrink-0">
+                        <!-- 可愛對話泡泡 SVG -->
+                        <svg class="w-8 h-8 text-[#00B900]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-retro-dark">官方 LINE</h3>
+                            <span class="text-xs font-bold px-2 py-0.5 bg-retro-lightgreen text-retro-green border border-retro-dark rounded">客服私訊</span>
+                        </div>
+                        <p class="text-sm font-bold text-retro-amber mt-0.5 select-all">已停用，請使用mail聯繫</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!--                         實體店面與信箱 區塊                          -->
+        <!-- =================================================================== -->
+        <section id="contact" class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-retro-yellow/30 border-3 border-retro-dark rounded-2xl p-6 md:p-8 shadow-retro">
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- 門市地址 -->
+                    <div class="bg-retro-paper border-2 border-retro-dark rounded-xl p-5 flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-retro-green text-white rounded-lg border border-retro-dark flex items-center justify-center shrink-0">
+                            <!-- 圖釘/地標 SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-retro-amber uppercase tracking-wider block">STORE LOCATION</span>
+                            <h4 class="text-lg font-bold text-retro-dark">實體店面地址</h4>
+                            <p class="text-sm text-retro-brown font-medium mt-1 leading-snug">
+                                臺中市清水區吳厝里和睦路三段250號
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 聯絡信箱 -->
+                    <div class="bg-retro-paper border-2 border-retro-dark rounded-xl p-5 flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-retro-amber text-white rounded-lg border border-retro-dark flex items-center justify-center shrink-0">
+                            <!-- 信封 SVG -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-retro-amber uppercase tracking-wider block">EMAIL CONTACT</span>
+                            <h4 class="text-lg font-bold text-retro-dark">聯絡信箱</h4>
+                            <a href="mailto:sanmuliving@gmail.com" class="text-sm text-retro-brown font-medium mt-1 leading-snug hover:text-retro-amber transition-colors block select-all">
+                                sanmuliving@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!--                             實體位置 (地圖) 區塊                     -->
+        <!-- =================================================================== -->
+        <section id="location" class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-retro-paper border-3 border-retro-dark rounded-2xl p-6 md:p-8 shadow-retro-lg space-y-6">
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b-2 border-dashed border-retro-dark pb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold font-serif-title text-retro-dark">歡迎親臨門市參觀</h2>
+                        <p class="text-xs md:text-sm text-retro-brown mt-0.5">現場探索更多未上架的古著與舊物驚喜！</p>
+                    </div>
+                    <a href="https://maps.google.com/?q=臺中市清水區吳厝里和睦路三段250號" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-4 py-2 bg-retro-yellow border-2 border-retro-dark rounded-lg text-xs font-bold shadow-retro-sm hover:bg-retro-amber hover:text-white transition-all w-max">
+                        <span>開啟 Google 地圖導航</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                </div>
+
+                <!-- Google 地圖外框 (懷舊框線感與修正後的通用嵌入網址) -->
+                <div class="relative rounded-xl border-2 border-retro-dark overflow-hidden shadow-inner bg-retro-lightgreen min-h-[320px]">
+                    <iframe 
+                        title="三木良居門市位置圖"
+                        src="https://maps.google.com/maps?q=臺中市清水區吳厝里和睦路三段250號&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="380" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="w-full h-80 md:h-96 filter contrast-95">
+                    </iframe>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =================================================================== -->
+    <!--                              網站頁尾                               -->
+    <!-- =================================================================== -->
+    <footer class="bg-retro-dark text-retro-paper border-t-4 border-retro-amber py-8 mt-12">
+        <div class="container mx-auto px-4 text-center space-y-3">
+            <div class="flex justify-center items-center space-x-2 text-sm font-bold">
+                <span>三木良居 Sanmu Living</span>
+                <span>‧</span>
+                <span class="text-retro-yellow">嚴選二手良品</span>
+            </div>
+            <p class="text-xs text-retro-paper/70">
+                &copy; 2025 三木良居 Sanmu Living. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
